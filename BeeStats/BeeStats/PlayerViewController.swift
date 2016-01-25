@@ -33,7 +33,7 @@ class PlayerViewController: UIViewController {
                 self.usernameLabel.text = currentPlayer.username
                 self.rankNameLabel.text = currentPlayer.rankName
                 print(currentPlayer.username)
-                // self.tokensLabel.text = currentPlayer.tokens!
+                self.tokensLabel.text = "\(currentPlayer.tokens!) Tokens"
                 }
             }
         }
@@ -42,7 +42,7 @@ class PlayerViewController: UIViewController {
         1. Profile View: "https://avatar.hivemc.com/avatar/\(username)"
         2. 3D View: "http://94.23.196.111/3D/\/username)"
         */
-        let url = NSURL(string: "https://avatar.hivemc.com/avatar/\(username)/80")
+        let url = NSURL(string: "https://avatar.hivemc.com/avatar/\(username)/500")
         let data = NSData(contentsOfURL: url!)
         userProfileImage.image = UIImage(data: data!)
     }
