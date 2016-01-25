@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UISearchBarDelegate {
+class MasterViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var textField: UITextField!
 
