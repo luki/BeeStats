@@ -64,12 +64,10 @@
 		4F17E8981C53DBD90024CD71 /* BeeStats */ = {
 			isa = PBXGroup;
 			children = (
+				4FC186151C57D0FE009BDAAE /* Controller */,
+				4FC186141C57D0DF009BDAAE /* NetworkAndParsing */,
 				4F17E8991C53DBD90024CD71 /* AppDelegate.swift */,
-				4F17E89B1C53DBD90024CD71 /* MasterViewController.swift */,
-				4F17E8AB1C540A2B0024CD71 /* PlayerViewController.swift */,
 				4F00582F1C5518B40048DDE2 /* Player.swift */,
-				4F0058311C551CBC0048DDE2 /* Network.swift */,
-				4FEDFAFF1C56547A005E883E /* DownloadJSON.swift */,
 				4FEDFB011C5667B7005E883E /* Alert.swift */,
 				4F17E89D1C53DBD90024CD71 /* Main.storyboard */,
 				4F17E8A01C53DBD90024CD71 /* Assets.xcassets */,
@@ -77,6 +75,24 @@
 				4F17E8A51C53DBD90024CD71 /* Info.plist */,
 			);
 			path = BeeStats;
+			sourceTree = "<group>";
+		};
+		4FC186141C57D0DF009BDAAE /* NetworkAndParsing */ = {
+			isa = PBXGroup;
+			children = (
+				4FEDFAFF1C56547A005E883E /* DownloadJSON.swift */,
+				4F0058311C551CBC0048DDE2 /* Network.swift */,
+			);
+			name = NetworkAndParsing;
+			sourceTree = "<group>";
+		};
+		4FC186151C57D0FE009BDAAE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4F17E89B1C53DBD90024CD71 /* MasterViewController.swift */,
+				4F17E8AB1C540A2B0024CD71 /* PlayerViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

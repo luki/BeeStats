@@ -8,8 +8,10 @@
 
 import UIKit
 
-class MasterViewController: UIViewController, UISearchBarDelegate {
+class MasterViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var searchButton: UIBarButtonItem!
+    @IBOutlet weak var navBarImage: UIView!
     @IBOutlet weak var textField: UITextField!
 
     @IBAction func search(sender: AnyObject) {
@@ -19,7 +21,8 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nib
+        
     }
 
     override func didReceiveMemoryWarning() {
