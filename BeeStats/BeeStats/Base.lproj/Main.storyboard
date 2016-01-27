@@ -54,12 +54,10 @@
                             <searchBar contentMode="redraw" barStyle="black" text="" placeholder="Search for a player" translatesAutoresizingMaskIntoConstraints="NO" id="w2D-fg-JJo">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="roi-qX-4Uf"/>
+                                </connections>
                             </searchBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fvl-wR-clN">
-                                <rect key="frame" x="103" y="126" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -71,15 +69,9 @@
                     <navigationItem key="navigationItem" id="t3y-MT-2Bu">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="gqx-NU-iMi"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="YuL-ri-miO">
-                            <connections>
-                                <action selector="search:" destination="BYZ-38-t0r" id="pya-eM-rxI"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchButton" destination="YuL-ri-miO" id="Jmk-YB-jyL"/>
-                        <outlet property="textField" destination="Fvl-wR-clN" id="M6q-zs-EY4"/>
+                        <outlet property="searchBar" destination="w2D-fg-JJo" id="pnl-sg-cDW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -141,7 +133,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Victories" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG8-Uf-ylS">
                                                     <rect key="frame" x="8" y="8" width="166" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="633845" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSP-th-2Pe">

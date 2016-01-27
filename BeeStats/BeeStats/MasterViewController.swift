@@ -8,21 +8,18 @@
 
 import UIKit
 
-class MasterViewController: UIViewController, UITextFieldDelegate {
+class MasterViewController: UIViewController, UITextFieldDelegate, UISearchBarDelegate {
     
-    @IBOutlet weak var searchButton: UIBarButtonItem!
     @IBOutlet weak var navBarImage: UIView!
-    @IBOutlet weak var textField: UITextField!
-
-    @IBAction func search(sender: AnyObject) {
-        performSegueWithIdentifier("showUser", sender: sender)
-    }
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib
-        
+        searchBar.delegate = self
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        performSegueWithIdentifier("showUser", sender: searchBar)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +30,7 @@ class MasterViewController: UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showUser" {
             let controller = segue.destinationViewController as! PlayerViewController
-            controller.username = textField.text!
+            controller.username = searchBar.text!
         }
     }
 
