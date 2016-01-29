@@ -97,7 +97,7 @@
                                 <color key="textColor" white="1" alpha="0.70538461538461539" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="adM-aQ-Pk2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profileImage" translatesAutoresizingMaskIntoConstraints="NO" id="adM-aQ-Pk2">
                                 <rect key="frame" x="20" y="84" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="JBC-s7-oOG"/>
@@ -200,6 +200,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="default_profileImage" width="250" height="250"/>
         <image name="user_profile_bg" width="1025" height="103"/>
     </resources>
 </document>

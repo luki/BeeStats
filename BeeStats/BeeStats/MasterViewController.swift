@@ -42,6 +42,5 @@ class MasterViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
         imageView.image = image
         self.navigationItem.titleView = imageView
     }
-
+    
 }
-

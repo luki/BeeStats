@@ -102,8 +102,11 @@ class PlayerViewController: UIViewController {
         2. 3D View: "http://94.23.196.111/3D/\/username)"
         */
         let url = NSURL(string: "https://avatar.hivemc.com/avatar/\(username)/500")
-        let data = NSData(contentsOfURL: url!)
-        userProfileImage.image = UIImage(data: data!)
+        if let data = NSData(contentsOfURL: url!) {
+        userProfileImage.image = UIImage(data: data)
+        } else {
+            userProfileImage.image = UIImage(named: "default.png")
+        }
     }
     
     // MARK: - Table view data source
