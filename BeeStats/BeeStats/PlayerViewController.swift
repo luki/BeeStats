@@ -17,12 +17,20 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var rankNameLabel: UILabel!
     @IBOutlet weak var tokensLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addLogoToNavBar()
         updateUI()
             }
         // Do any additional setup after loading the view.
+    
+    func addLogoToNavBar() {
+        let image = UIImage(named: "logo.png")
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 34))
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = image
+        self.navigationItem.titleView = imageView
+    }
 
     func updateUI() {
         let hiveDowload = Download()

@@ -14,4 +14,5 @@ func createAlert(title: String, message: String) {
     let action = UIAlertAction(title: "Got It", style: .Default) {
         (action) in
     }
+    alert.addAction(action)
 }

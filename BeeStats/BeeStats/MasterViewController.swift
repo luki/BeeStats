@@ -15,6 +15,7 @@ class MasterViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addLogoToNavBar()
         searchBar.delegate = self
     }
     
@@ -32,6 +33,14 @@ class MasterViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
             let controller = segue.destinationViewController as! PlayerViewController
             controller.username = searchBar.text!
         }
+    }
+    
+    func addLogoToNavBar() {
+        let image = UIImage(named: "logo.png")
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 34))
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = image
+        self.navigationItem.titleView = imageView
     }
 
 }
