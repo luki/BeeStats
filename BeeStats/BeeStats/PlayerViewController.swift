@@ -39,10 +39,18 @@ class PlayerViewController: UIViewController {
             
             dispatch_async(dispatch_get_main_queue()) {
             if let currentPlayer = player {
-                self.usernameLabel.text = currentPlayer.username
-                self.rankNameLabel.text = currentPlayer.rankName
+                if let username = currentPlayer.username {
+                    self.usernameLabel?.text = "\(username)"
+                }
+                if let rankName = currentPlayer.rankName {
+                    self.rankNameLabel?.text = "\(rankName)"
+                }
+                
+                if let tokens = currentPlayer.tokens {
+                    self.tokensLabel?.text = "\(tokens)"
+                }
+                
                 print(currentPlayer.username)
-                self.tokensLabel.text = "\(currentPlayer.tokens!) Tokens"
                 print(currentPlayer.arrowsFired)
                 print(currentPlayer.arrowsHit)
                 print(currentPlayer.blocks)

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Network {
     let URL: NSURL
