@@ -56,37 +56,32 @@ class PlayerViewController: UIViewController {
         
         let cardView: CardView = CardView()
         
-        // Title label.
         let titleLabel: UILabel = UILabel()
         titleLabel.text = "Adding \(username)"
         titleLabel.textColor = MaterialColor.brown.darken1
         titleLabel.font = RobotoFont.mediumWithSize(20)
         cardView.titleLabel = titleLabel
         
-        // Detail label.
         let detailLabel: UILabel = UILabel()
         detailLabel.text = "You are about to add xpaperx to your favorites. This player will be displayed on the main screen."
         detailLabel.numberOfLines = 0
         cardView.detailLabel = detailLabel
         
-        // Yes button.
-        let btn1: FlatButton = FlatButton()
-        btn1.pulseColor = MaterialColor.brown.lighten1
-        btn1.pulseFill = true
-        btn1.pulseScale = false
-        btn1.setTitle("ADD", forState: .Normal)
-        btn1.setTitleColor(MaterialColor.brown.darken1, forState: .Normal)
+        let add: FlatButton = FlatButton()
+        add.pulseColor = MaterialColor.brown.lighten1
+        add.pulseFill = true
+        add.pulseScale = false
+        add.setTitle("ADD", forState: .Normal)
+        add.setTitleColor(MaterialColor.brown.darken1, forState: .Normal)
         
-        // No button.
-        let btn2: FlatButton = FlatButton()
-        btn2.pulseColor = MaterialColor.brown.lighten1
-        btn2.pulseFill = true
-        btn2.pulseScale = false
-        btn2.setTitle("CANCEL", forState: .Normal)
-        btn2.setTitleColor(MaterialColor.brown.darken1, forState: .Normal)
+        let cancel: FlatButton = FlatButton()
+        cancel.pulseColor = MaterialColor.brown.lighten1
+        cancel.pulseFill = true
+        cancel.pulseScale = false
+        cancel.setTitle("CANCEL", forState: .Normal)
+        cancel.setTitleColor(MaterialColor.brown.darken1, forState: .Normal)
         
-        // Add buttons to left side.
-        cardView.leftButtons = [btn1, btn2]
+        cardView.leftButtons = [add, cancel]
         
         // To support orientation changes, use MaterialLayout.
         view.addSubview(cardView)
