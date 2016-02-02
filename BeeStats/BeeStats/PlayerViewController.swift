@@ -18,6 +18,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var rankNameLabel: UILabel!
     @IBOutlet weak var tokensLabel: UILabel!
     
+    var addFavoriteActive = false
+    
     var screenwidth : CGFloat!
     var screenheight : CGFloat!
     
@@ -53,7 +55,7 @@ class PlayerViewController: UIViewController {
     }
     
     func alertFavoriteUser() {
-        
+        if addFavoriteActive == false {
         let cardView: CardView = CardView()
         
         let titleLabel: UILabel = UILabel()
@@ -87,7 +89,13 @@ class PlayerViewController: UIViewController {
         view.addSubview(cardView)
         cardView.translatesAutoresizingMaskIntoConstraints = false
         MaterialLayout.alignFromTop(view, child: cardView, top: 100)
-        MaterialLayout.alignToParentHorizontally(view, child: cardView, left: 20, right: 20)    }
+        MaterialLayout.alignToParentHorizontally(view, child: cardView, left: 20, right: 20)
+            addFavoriteActive = true
+        } else {
+            print("Opened already!")
+        }
+        
+        }
 
     func updateUI() {
         let hiveDowload = Download()
