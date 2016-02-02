@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Material
 
 class PlayerViewController: UIViewController {
     
@@ -17,12 +18,31 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var rankNameLabel: UILabel!
     @IBOutlet weak var tokensLabel: UILabel!
     
+    var screenwidth : CGFloat!
+    var screenheight : CGFloat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addLogoToNavBar()
         updateUI()
-            }
+        // Get Screensize of Device
+        screenwidth = self.view.frame.size.width
+        screenheight = self.view.frame.size.height
+    
+        let favoriteImg: UIImage? = UIImage(named: "ic_add_white_18dp")
+        let addToFavorites = FabButton(frame: CGRectMake(screenwidth-84, screenheight-84, 64, 64))
+        addToFavorites.backgroundColor = MaterialColor.brown.base
+        addToFavorites.setImage(favoriteImg, forState: .Normal)
+        addToFavorites.setImage(favoriteImg, forState: .Highlighted)
+        view.addSubview(addToFavorites)
+        addToFavorites.addTarget(self, action: "favorite:", forControlEvents: .TouchUpInside)
+    }
         // Do any additional setup after loading the view.
+    
+    func favorite(sender: FabButton!) {
+        print("Hello")
+        alertFavoriteUser()
+    }
     
     func addLogoToNavBar() {
         let image = UIImage(named: "logo.png")
@@ -31,6 +51,48 @@ class PlayerViewController: UIViewController {
         imageView.image = image
         self.navigationItem.titleView = imageView
     }
+    
+    func alertFavoriteUser() {
+        
+        let cardView: CardView = CardView()
+        
+        // Title label.
+        let titleLabel: UILabel = UILabel()
+        titleLabel.text = "Adding \(username)"
+        titleLabel.textColor = MaterialColor.brown.darken1
+        titleLabel.font = RobotoFont.mediumWithSize(20)
+        cardView.titleLabel = titleLabel
+        
+        // Detail label.
+        let detailLabel: UILabel = UILabel()
+        detailLabel.text = "You are about to add xpaperx to your favorites. This player will be displayed on the main screen."
+        detailLabel.numberOfLines = 0
+        cardView.detailLabel = detailLabel
+        
+        // Yes button.
+        let btn1: FlatButton = FlatButton()
+        btn1.pulseColor = MaterialColor.brown.lighten1
+        btn1.pulseFill = true
+        btn1.pulseScale = false
+        btn1.setTitle("ADD", forState: .Normal)
+        btn1.setTitleColor(MaterialColor.brown.darken1, forState: .Normal)
+        
+        // No button.
+        let btn2: FlatButton = FlatButton()
+        btn2.pulseColor = MaterialColor.brown.lighten1
+        btn2.pulseFill = true
+        btn2.pulseScale = false
+        btn2.setTitle("CANCEL", forState: .Normal)
+        btn2.setTitleColor(MaterialColor.brown.darken1, forState: .Normal)
+        
+        // Add buttons to left side.
+        cardView.leftButtons = [btn1, btn2]
+        
+        // To support orientation changes, use MaterialLayout.
+        view.addSubview(cardView)
+        cardView.translatesAutoresizingMaskIntoConstraints = false
+        MaterialLayout.alignFromTop(view, child: cardView, top: 100)
+        MaterialLayout.alignToParentHorizontally(view, child: cardView, left: 20, right: 20)    }
 
     func updateUI() {
         let hiveDowload = Download()
@@ -43,11 +105,38 @@ class PlayerViewController: UIViewController {
                     self.usernameLabel?.text = "\(username)"
                 }
                 if let rankName = currentPlayer.rankName {
-                    self.rankNameLabel?.text = "\(rankName)"
+                    
+                    if currentPlayer.username == "lukeatit" || currentPlayer.username == "Winner" {
+                        self.rankNameLabel?.text = "App Creator"
+                        self.rankNameLabel.backgroundColor = MaterialColor.teal.base
+                    } else {
+                    
+                    switch rankName {
+                        
+                    case "Hive Moderator": self.rankNameLabel?.text = "Moderator"
+                        self.rankNameLabel.backgroundColor = UIColor(red: 223.0/255.0, green: 75.0/255.0, blue: 63.0/255.0, alpha: 1.0)
+                        
+                    case "Diamond Hive Member": self.rankNameLabel?.text = "Diamond Member"
+                        self.rankNameLabel.backgroundColor = UIColor(red: 30.0/255.0, green: 173.0/255.0, blue: 177.0/255.0, alpha: 1.0)
+                        
+                    case "Lifetime Emerald Hive Member": self.rankNameLabel?.text = "Emerald Member"
+                        self.rankNameLabel.backgroundColor = UIColor(red: 45.0/255.0, green: 199.0/255.0, blue: 63.0/255.0, alpha: 1.0)
+                        
+                    case "Hive Founder and Owner": self.rankNameLabel?.text = "Founder and Owner"
+                        self.rankNameLabel.backgroundColor = UIColor(red: 237.0/255.0, green: 175.0/255.0, blue: 22.0/255.0, alpha: 1.0)
+                        
+                    case "VIP Player": self.rankNameLabel?.text = "VIP Player"
+                        self.rankNameLabel.backgroundColor = UIColor(red: 170.0/255.0, green: 47.0/255.0, blue: 225.0/255.0, alpha: 1.0)
+                        
+                    default: self.rankNameLabel?.text = "Regular Member"
+                        self.rankNameLabel.backgroundColor = UIColor(red: 34.0/255.0, green: 97.0/255.0, blue: 153.0/255.0, alpha: 1.0)
+
+                    }
+                    }
                 }
                 
                 if let tokens = currentPlayer.tokens {
-                    self.tokensLabel?.text = "\(tokens)"
+                    self.tokensLabel?.text = "\(tokens) Tokens"
                 }
                 
                 print(currentPlayer.username)

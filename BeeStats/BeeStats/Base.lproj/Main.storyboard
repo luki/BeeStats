@@ -161,9 +161,7 @@
                             <constraint firstAttribute="trailing" secondItem="TBw-WU-YBO" secondAttribute="trailing" constant="20" id="z5k-al-8Gk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WJq-qa-DKR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fTA-Pi-YLN"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="WJq-qa-DKR"/>
                     <connections>
                         <outlet property="rankNameLabel" destination="TBw-WU-YBO" id="E0t-LT-EFQ"/>
                         <outlet property="tokensLabel" destination="omo-rc-Qnf" id="Fjt-Md-FPp"/>
@@ -183,8 +181,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Kol-aw-Tic">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.80784313725490198" green="0.38039215686274508" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.99607843137254903" green="0.81568627450980391" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.80784313730000001" green="0.3803921569" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.99607843139999996" green="0.81568627449999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>

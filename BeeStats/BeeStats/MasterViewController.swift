@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Material
 
 class MasterViewController: UIViewController, UITextFieldDelegate, UISearchBarDelegate {
     
