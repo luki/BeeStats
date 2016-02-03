@@ -9,7 +9,9 @@
 import UIKit
 import Material
 
-class MasterViewController: UIViewController, UITextFieldDelegate, UISearchBarDelegate {
+class MasterViewController: UIViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var FavoritePlayers: UITableView!
     
     @IBOutlet weak var navBarImage: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -18,6 +20,7 @@ class MasterViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
         super.viewDidLoad()
         addLogoToNavBar()
         searchBar.delegate = self
+        
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -44,4 +47,4 @@ class MasterViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
         self.navigationItem.titleView = imageView
     }
     
-}
+    }

@@ -18,7 +18,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var rankNameLabel: UILabel!
     @IBOutlet weak var tokensLabel: UILabel!
     
-    var addFavoriteActive = false
+    var addFavoriteActive = false // Using for checking if add to favorite alert is opened
     
     var screenwidth : CGFloat!
     var screenheight : CGFloat!
@@ -42,7 +42,6 @@ class PlayerViewController: UIViewController {
         // Do any additional setup after loading the view.
     
     func favorite(sender: FabButton!) {
-        print("Hello")
         alertFavoriteUser()
     }
     
@@ -54,10 +53,18 @@ class PlayerViewController: UIViewController {
         self.navigationItem.titleView = imageView
     }
     
+    func addFavoriteButton (sender: FlatButton!) { //Action "connected" to the "Add" button in the add to favorite alert
+    }
+    
+    
+    func cancelFavoriteButton (sender: FlatButton!) {
+        print("Cancel")
+    }
+    
     func alertFavoriteUser() {
         if addFavoriteActive == false {
         let cardView: CardView = CardView()
-        
+            
         let titleLabel: UILabel = UILabel()
         titleLabel.text = "Adding \(username)"
         titleLabel.textColor = MaterialColor.brown.darken1
@@ -75,6 +82,7 @@ class PlayerViewController: UIViewController {
         add.pulseScale = false
         add.setTitle("ADD", forState: .Normal)
         add.setTitleColor(MaterialColor.brown.darken1, forState: .Normal)
+        add.addTarget(self, action: "addFavoriteButton:", forControlEvents: .TouchUpInside)
         
         let cancel: FlatButton = FlatButton()
         cancel.pulseColor = MaterialColor.brown.lighten1
@@ -82,6 +90,7 @@ class PlayerViewController: UIViewController {
         cancel.pulseScale = false
         cancel.setTitle("CANCEL", forState: .Normal)
         cancel.setTitleColor(MaterialColor.brown.darken1, forState: .Normal)
+        cancel.addTarget(self, action: "cancelFavoriteButton:", forControlEvents: .TouchUpInside)
         
         cardView.leftButtons = [add, cancel]
         
