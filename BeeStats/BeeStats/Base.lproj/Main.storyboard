@@ -23,39 +23,38 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="roi-qX-4Uf"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sah-ng-exj">
-                                <rect key="frame" x="0.0" y="108" width="320" height="492"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sah-ng-exj">
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteCell" rowHeight="69" id="u8s-A7-Qgx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="aFavoritePlayer" id="23G-hz-K7A" customClass="FavoritePlayerTableViewCell" customModule="BeeStats" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u8s-A7-Qgx" id="fO9-9p-V3I">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="68.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="23G-hz-K7A" id="b2n-SB-5mJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="68.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KQq-Sf-Ize">
-                                                    <rect key="frame" x="8" y="7" width="53.5" height="53.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3sK-aB-LHf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="68.5" height="68.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xpaperx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tm6-q7-fjE">
-                                                    <rect key="frame" x="69" y="12" width="62" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xpaperx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ycr-UX-WrX">
+                                                    <rect key="frame" x="76" y="13" width="236" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Added January 23, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eo-3e-Bnd">
-                                                    <rect key="frame" x="69" y="41" width="138" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moderator" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et2-BI-kyg">
+                                                    <rect key="frame" x="76" y="36" width="236" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="detailText" destination="fO9-9p-V3I" id="MfH-nq-hBH"/>
-                                            <outlet property="playerName" destination="fO9-9p-V3I" id="gge-ep-Hlz"/>
-                                            <outlet property="profileImage" destination="fO9-9p-V3I" id="hpL-a9-XHl"/>
-                                            <segue destination="oEE-J0-Y9B" kind="push" identifier="showUser" id="Ilv-Rq-Eep"/>
+                                            <outlet property="profileImageView" destination="3sK-aB-LHf" id="XX3-vc-Xch"/>
+                                            <outlet property="rankNameLabel" destination="et2-BI-kyg" id="eC8-cK-ZB0"/>
+                                            <outlet property="usernameTextLabel" destination="Ycr-UX-WrX" id="PaF-gi-J37"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -64,9 +63,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Sah-ng-exj" firstAttribute="top" secondItem="w2D-fg-JJo" secondAttribute="bottom" id="34C-p0-QdF"/>
+                            <constraint firstItem="Sah-ng-exj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6TF-Lu-pNv"/>
                             <constraint firstAttribute="trailing" secondItem="w2D-fg-JJo" secondAttribute="trailing" id="8z0-Qm-zwU"/>
+                            <constraint firstAttribute="trailing" secondItem="Sah-ng-exj" secondAttribute="trailing" id="B03-Vw-1V9"/>
                             <constraint firstItem="w2D-fg-JJo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DCW-jv-sv8"/>
                             <constraint firstItem="w2D-fg-JJo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Qsn-Vc-qDE"/>
+                            <constraint firstItem="Sah-ng-exj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XH8-v3-zU6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Sah-ng-exj" secondAttribute="bottom" id="uud-YA-3o0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="t3y-MT-2Bu">
