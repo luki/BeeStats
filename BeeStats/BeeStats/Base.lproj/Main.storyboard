@@ -79,6 +79,7 @@
                     <connections>
                         <outlet property="FavoritePlayers" destination="Sah-ng-exj" id="ehc-zT-zCO"/>
                         <outlet property="searchBar" destination="w2D-fg-JJo" id="pnl-sg-cDW"/>
+                        <segue destination="oEE-J0-Y9B" kind="push" identifier="showUser" id="FJ1-iN-X5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

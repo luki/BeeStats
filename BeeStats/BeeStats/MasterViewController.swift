@@ -17,30 +17,19 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
     @IBOutlet weak var navBarImage: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let hello: [String] = ["my name0","my name1","my name2"]
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hello.count
+        return hii.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        let myCell = FavoritePlayers.dequeueReusableCellWithIdentifier("aFavoritePlayer", forIndexPath: indexPath) as! FavoritePlayerTableViewCell
         
-        myCell.usernameTextLabel.text = hello[indexPath.row]
+        myCell.usernameTextLabel.text = hii[indexPath.row]
         myCell.usernameTextLabel.font = RobotoFont.lightWithSize(16)
         
         myCell.rankNameLabel.text = "Moderator"
         myCell.rankNameLabel.font = RobotoFont.mediumWithSize(11)
         myCell.rankNameLabel.textColor = MaterialColor.red.base
-        
-        /*
-        let url = NSURL(string: "https://avatar.hivemc.com/avatar/\(hello[indexPath.row])/500")
-        if let data = NSData(contentsOfURL: url!) {
-            myCell.profileImageView.image = UIImage(data: data)
-        } else {
-            myCell.profileImageView.image = UIImage(named: "default.png")
-            
-        }*/
         
         
         return myCell
