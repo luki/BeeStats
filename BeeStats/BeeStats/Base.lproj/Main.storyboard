@@ -131,7 +131,7 @@
                                 <rect key="frame" x="0.0" y="184" width="320" height="384"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="oneStatCell" rowHeight="36" id="PwQ-EW-AqX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="oneStatCell" rowHeight="36" id="PwQ-EW-AqX" customClass="StatTableViewCell" customModule="BeeStats" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PwQ-EW-AqX" id="MF4-ua-8Dg">
@@ -152,6 +152,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="keyLabel" destination="VG8-Uf-ylS" id="ITe-sh-1sJ"/>
+                                            <outlet property="valueLabel" destination="iSP-th-2Pe" id="sRL-3v-XMI"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -174,6 +178,7 @@
                     <navigationItem key="navigationItem" id="WJq-qa-DKR"/>
                     <connections>
                         <outlet property="rankNameLabel" destination="TBw-WU-YBO" id="E0t-LT-EFQ"/>
+                        <outlet property="statTableView" destination="7V5-9C-Is1" id="Wda-tW-zqO"/>
                         <outlet property="tokensLabel" destination="omo-rc-Qnf" id="Fjt-Md-FPp"/>
                         <outlet property="userProfileImage" destination="adM-aQ-Pk2" id="B12-h9-TMU"/>
                         <outlet property="usernameLabel" destination="fx4-KR-xcb" id="ixf-RR-ZY8"/>

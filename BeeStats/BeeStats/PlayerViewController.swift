@@ -9,9 +9,11 @@
 import UIKit
 import Material
 
-class PlayerViewController: UIViewController {
+class PlayerViewController: UIViewController, UITableViewDataSource {
     
     var username = ""
+    
+    @IBOutlet weak var statTableView: UITableView!
     
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -22,6 +24,19 @@ class PlayerViewController: UIViewController {
     
     var screenwidth : CGFloat!
     var screenheight : CGFloat!
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let statCell = statTableView.dequeueReusableCellWithIdentifier("oneStatCell", forIndexPath: indexPath) as! StatTableViewCell
+        statCell.keyLabel.text = "Hola"
+        statCell.valueLabel.text = "Holaaa"
+        
+        return statCell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +53,8 @@ class PlayerViewController: UIViewController {
         addToFavorites.setImage(favoriteImg, forState: .Highlighted)
         view.addSubview(addToFavorites)
         addToFavorites.addTarget(self, action: "favorite:", forControlEvents: .TouchUpInside)
+        
+        statTableView.dataSource = self
     }
         // Do any additional setup after loading the view.
     
