@@ -32,8 +32,12 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let statCell = statTableView.dequeueReusableCellWithIdentifier("oneStatCell", forIndexPath: indexPath) as! StatTableViewCell
+        
         statCell.keyLabel.text = "Hola"
+        statCell.keyLabel.font = RobotoFont.lightWithSize(14)
+        
         statCell.valueLabel.text = "Holaaa"
+        statCell.valueLabel.font = RobotoFont.lightWithSize(14)
         
         return statCell
     }
@@ -45,6 +49,11 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
         // Get Screensize of Device
         screenwidth = self.view.frame.size.width
         screenheight = self.view.frame.size.height
+        
+        usernameLabel.font = RobotoFont.thinWithSize(21)
+        rankNameLabel.font = RobotoFont.thinWithSize(14)
+        tokensLabel.font = RobotoFont.thinWithSize(14)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: RobotoFont.regularWithSize(16)], forState: UIControlState.Normal)
     
         let favoriteImg: UIImage? = UIImage(named: "ic_add_white_18dp")
         let addToFavorites = FabButton(frame: CGRectMake(screenwidth-84, screenheight-84, 64, 64))
@@ -63,8 +72,8 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
     }
     
     func addLogoToNavBar() {
-        let image = UIImage(named: "logo.png")
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 34))
+        let image = UIImage(named: "bs_logo.png")
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 28))
         imageView.contentMode = .ScaleAspectFit
         imageView.image = image
         self.navigationItem.titleView = imageView
@@ -141,9 +150,17 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
                     } else {
                     
                     switch rankName {
+                    
+                    case "Senior Hive Moderator": self.rankNameLabel?.text = "Senior Moderator"
+                        self.rankNameLabel.backgroundColor = UIColor(red: 159.0/255.0, green: 37.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+
                         
                     case "Hive Moderator": self.rankNameLabel?.text = "Moderator"
                         self.rankNameLabel.backgroundColor = UIColor(red: 223.0/255.0, green: 75.0/255.0, blue: 63.0/255.0, alpha: 1.0)
+                    
+                    case "Hive Admin": self.rankNameLabel?.text = "Developer"
+                    self.rankNameLabel.backgroundColor = UIColor(red: 109.0/255.0, green: 109.0/255.0, blue: 109.0/255.0, alpha: 1.0)
+
                         
                     case "Diamond Hive Member": self.rankNameLabel?.text = "Diamond Member"
                         self.rankNameLabel.backgroundColor = UIColor(red: 30.0/255.0, green: 173.0/255.0, blue: 177.0/255.0, alpha: 1.0)

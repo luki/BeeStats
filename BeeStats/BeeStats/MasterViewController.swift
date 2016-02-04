@@ -60,8 +60,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
     }
     
     func addLogoToNavBar() {
-        let image = UIImage(named: "logo.png")
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 34))
+        let image = UIImage(named: "bs_logo.png")
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 28))
         imageView.contentMode = .ScaleAspectFit
         imageView.image = image
         self.navigationItem.titleView = imageView
