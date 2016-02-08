@@ -80,6 +80,7 @@
                         <outlet property="FavoritePlayers" destination="Sah-ng-exj" id="ehc-zT-zCO"/>
                         <outlet property="searchBar" destination="w2D-fg-JJo" id="pnl-sg-cDW"/>
                         <segue destination="oEE-J0-Y9B" kind="push" identifier="showUser" id="FJ1-iN-X5t"/>
+                        <segue destination="i9m-Ct-woQ" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="ssv-MG-Z9f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -99,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user_profile_bg" translatesAutoresizingMaskIntoConstraints="NO" id="BK3-hh-oLJ">
-                                <rect key="frame" x="0.0" y="64" width="600" height="120"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="150"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gold Member" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBw-WU-YBO">
                                 <rect key="frame" x="120" y="116" width="180" height="21"/>
@@ -126,8 +127,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="39" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7V5-9C-Is1">
-                                <rect key="frame" x="0.0" y="184" width="320" height="384"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="39" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7V5-9C-Is1">
+                                <rect key="frame" x="0.0" y="213" width="320" height="355"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="oneStatCell" rowHeight="36" id="PwQ-EW-AqX" customClass="StatTableViewCell" customModule="BeeStats" customModuleProvider="target">
@@ -159,6 +160,15 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Currently hibernating in the Land of Nods!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOc-H4-ucr">
+                                <rect key="frame" x="44" y="173" width="256" height="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hqk-3o-vn7">
+                                <rect key="frame" x="20" y="172" width="16" height="16"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -174,8 +184,15 @@
                             <constraint firstAttribute="trailing" secondItem="TBw-WU-YBO" secondAttribute="trailing" constant="20" id="z5k-al-8Gk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WJq-qa-DKR"/>
+                    <navigationItem key="navigationItem" id="WJq-qa-DKR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="D2W-1f-QNX">
+                            <connections>
+                                <action selector="reload:" destination="oEE-J0-Y9B" id="e2U-E5-gWT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="locationAndStatus" destination="TOc-H4-ucr" id="125-or-DMc"/>
                         <outlet property="rankNameLabel" destination="TBw-WU-YBO" id="E0t-LT-EFQ"/>
                         <outlet property="statTableView" destination="7V5-9C-Is1" id="Wda-tW-zqO"/>
                         <outlet property="tokensLabel" destination="omo-rc-Qnf" id="Fjt-Md-FPp"/>
@@ -184,6 +201,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LpA-1m-bXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="i9m-Ct-woQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1019" y="982"/>
         </scene>

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct Download {
+struct DownloadUserProfile {
     
     var startingURL = NSURL(string: "https://old.hivemc.com/json/userprofile/")
     

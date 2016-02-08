@@ -8,4 +8,5 @@
 
 import Foundation
 
-var hii: [String] = ["xpaperx","lukeatit","Winner"]
+let userDefaults = NSUserDefaults.standardUserDefaults()
+var favoritePlayers: [String] = []

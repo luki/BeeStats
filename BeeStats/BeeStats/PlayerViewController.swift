@@ -19,6 +19,7 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var rankNameLabel: UILabel!
     @IBOutlet weak var tokensLabel: UILabel!
+    @IBOutlet weak var locationAndStatus: UILabel!
     
     var addFavoriteActive = false // Using for checking if add to favorite alert is opened
     
@@ -53,6 +54,7 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
         usernameLabel.font = RobotoFont.thinWithSize(21)
         rankNameLabel.font = RobotoFont.thinWithSize(14)
         tokensLabel.font = RobotoFont.thinWithSize(14)
+        locationAndStatus.font = RobotoFont.thinWithSize(12)
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: RobotoFont.regularWithSize(16)], forState: UIControlState.Normal)
     
         let favoriteImg: UIImage? = UIImage(named: "ic_add_white_18dp")
@@ -64,6 +66,7 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
         addToFavorites.addTarget(self, action: "favorite:", forControlEvents: .TouchUpInside)
         
         statTableView.dataSource = self
+        userDefaults.synchronize()
     }
         // Do any additional setup after loading the view.
     
@@ -82,6 +85,9 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
     func addFavoriteButton (sender: FlatButton!) { //Action "connected" to the "Add" button in the add to favorite alert
     }
     
+    @IBAction func reload(sender: AnyObject) {
+        updateUI()
+    }
     
     func cancelFavoriteButton (sender: FlatButton!) {
         print("Cancel")
@@ -131,9 +137,31 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
         }
         
         }
-
+    
     func updateUI() {
-        let hiveDowload = Download()
+        
+        let statusDownload = DownladStatus()
+        statusDownload.downloadJSON(username) {
+            (let status) in
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                if let currentStatus = status {
+                    if let playerStatus = currentStatus.status {
+                        if let playerLocation = currentStatus.game {
+                            if playerStatus == "Currently hibernating in " {
+                                self.locationAndStatus?.text = "\(playerStatus)\(playerLocation)"
+                            } else {
+                                self.locationAndStatus?.text = "\(playerStatus) \(playerLocation)"
+                                print(playerStatus)
+                                print(playerLocation)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        let hiveDowload = DownloadUserProfile()
         hiveDowload.downloadJSON(username) {
             (let player) in
             

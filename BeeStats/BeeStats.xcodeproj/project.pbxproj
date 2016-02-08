@@ -18,8 +18,10 @@
 		4F17E8AC1C540A2B0024CD71 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17E8AB1C540A2B0024CD71 /* PlayerViewController.swift */; };
 		4F29BDFF1C6392E900D643C4 /* FavoritePlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F29BDFE1C6392E900D643C4 /* FavoritePlayerTableViewCell.swift */; };
 		4F8B98F41C639C0F000757BB /* StatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B98F31C639C0F000757BB /* StatTableViewCell.swift */; };
+		4FDCA6C81C68A11B000251F9 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCA6C71C68A11B000251F9 /* DownloadStatus.swift */; };
+		4FDCA6CA1C68A81E000251F9 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCA6C91C68A81E000251F9 /* PlayerStatus.swift */; };
 		4FE09A2F1C62566900201B26 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE09A2E1C62566900201B26 /* Favorites.swift */; };
-		4FEDFB001C56547A005E883E /* DownloadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDFAFF1C56547A005E883E /* DownloadJSON.swift */; };
+		4FEDFB001C56547A005E883E /* DownloadUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDFAFF1C56547A005E883E /* DownloadUserProfile.swift */; };
 		4FEDFB021C5667B7005E883E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDFB011C5667B7005E883E /* Alert.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +39,10 @@
 		4F17E8AB1C540A2B0024CD71 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		4F29BDFE1C6392E900D643C4 /* FavoritePlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritePlayerTableViewCell.swift; sourceTree = "<group>"; };
 		4F8B98F31C639C0F000757BB /* StatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatTableViewCell.swift; sourceTree = "<group>"; };
+		4FDCA6C71C68A11B000251F9 /* DownloadStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
+		4FDCA6C91C68A81E000251F9 /* PlayerStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
 		4FE09A2E1C62566900201B26 /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
-		4FEDFAFF1C56547A005E883E /* DownloadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadJSON.swift; sourceTree = "<group>"; };
+		4FEDFAFF1C56547A005E883E /* DownloadUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadUserProfile.swift; sourceTree = "<group>"; };
 		4FEDFB011C5667B7005E883E /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		71210E540072D25A88F96CC0 /* Pods-BeeStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeStats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeeStats/Pods-BeeStats.debug.xcconfig"; sourceTree = "<group>"; };
 		B5A9F9491EE0F6D1F8D22970 /* Pods-BeeStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeStats.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeeStats/Pods-BeeStats.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 				4F17E8991C53DBD90024CD71 /* AppDelegate.swift */,
 				4F8B98F21C639B8C000757BB /* TableViewCells */,
 				4F00582F1C5518B40048DDE2 /* Player.swift */,
+				4FDCA6C91C68A81E000251F9 /* PlayerStatus.swift */,
 				4FEDFB011C5667B7005E883E /* Alert.swift */,
 				4FE09A2E1C62566900201B26 /* Favorites.swift */,
 				4F17E89D1C53DBD90024CD71 /* Main.storyboard */,
@@ -113,7 +118,8 @@
 		4FC186141C57D0DF009BDAAE /* NetworkAndParsing */ = {
 			isa = PBXGroup;
 			children = (
-				4FEDFAFF1C56547A005E883E /* DownloadJSON.swift */,
+				4FEDFAFF1C56547A005E883E /* DownloadUserProfile.swift */,
+				4FDCA6C71C68A11B000251F9 /* DownloadStatus.swift */,
 				4F0058311C551CBC0048DDE2 /* Network.swift */,
 			);
 			name = NetworkAndParsing;
@@ -260,11 +266,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FE09A2F1C62566900201B26 /* Favorites.swift in Sources */,
+				4FDCA6C81C68A11B000251F9 /* DownloadStatus.swift in Sources */,
+				4FDCA6CA1C68A81E000251F9 /* PlayerStatus.swift in Sources */,
 				4F8B98F41C639C0F000757BB /* StatTableViewCell.swift in Sources */,
 				4F0058301C5518B40048DDE2 /* Player.swift in Sources */,
 				4F17E89C1C53DBD90024CD71 /* MasterViewController.swift in Sources */,
 				4F0058321C551CBC0048DDE2 /* Network.swift in Sources */,
-				4FEDFB001C56547A005E883E /* DownloadJSON.swift in Sources */,
+				4FEDFB001C56547A005E883E /* DownloadUserProfile.swift in Sources */,
 				4F17E89A1C53DBD90024CD71 /* AppDelegate.swift in Sources */,
 				4F17E8AC1C540A2B0024CD71 /* PlayerViewController.swift in Sources */,
 				4F29BDFF1C6392E900D643C4 /* FavoritePlayerTableViewCell.swift in Sources */,

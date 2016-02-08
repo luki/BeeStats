@@ -11,20 +11,18 @@ import Material
 
 class MasterViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
-    
     @IBOutlet weak var FavoritePlayers: UITableView!
-    
     @IBOutlet weak var navBarImage: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hii.count
+        return favoritePlayers.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        let myCell = FavoritePlayers.dequeueReusableCellWithIdentifier("aFavoritePlayer", forIndexPath: indexPath) as! FavoritePlayerTableViewCell
         
-        myCell.usernameTextLabel.text = hii[indexPath.row]
+        myCell.usernameTextLabel.text = favoritePlayers[indexPath.row]
         myCell.usernameTextLabel.font = RobotoFont.lightWithSize(16)
         
         myCell.rankNameLabel.text = "Moderator"
@@ -41,6 +39,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
         addLogoToNavBar()
         searchBar.delegate = self
         FavoritePlayers.dataSource = self
+        FavoritePlayers.reloadData()
+        userDefaults.synchronize()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
