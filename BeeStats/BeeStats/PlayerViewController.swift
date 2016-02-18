@@ -7,9 +7,60 @@
 //
 
 import UIKit
-import Material
+import AVFoundation
 
 class PlayerViewController: UIViewController, UITableViewDataSource {
+    
+    @IBAction func addFavorite(sender: AnyObject) {
+        favoriteAlert()
+    }
+    
+    func favoriteAlert() {
+        let alert = UIAlertController(title: "Adding \(usernameLabel.text) to favorites", message: "You are about to add this player to your favorites.", preferredStyle: .ActionSheet)
+        
+        let add = UIAlertAction(title: "Add", style: .Default) {
+            (action) in
+            
+            self.addFavoriteButton()
+        }
+        
+        alert.addAction(add)
+        
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) {
+            (action) in
+            
+            print("Cancelled")
+        }
+        
+        alert.addAction(cancel)
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    /*
+    var buttonBeep : AVAudioPlayer?
+    var secondBeep : AVAudioPlayer?
+    var backgroundMusic : AVAudioPlayer?
+    
+    func setupAudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer?  {
+        //1
+        let path = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
+        let url = NSURL.fileURLWithPath(path!)
+        
+        //2
+        var audioPlayer:AVAudioPlayer?
+        
+        // 3
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOfURL: url)
+        } catch {
+            print("Player not available")
+        }
+        
+        return audioPlayer
+    }
+*/
     
     var username = ""
     
@@ -21,24 +72,20 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tokensLabel: UILabel!
     @IBOutlet weak var locationAndStatus: UILabel!
     
+    var items = [[Player]]()
+    
     var addFavoriteActive = false // Using for checking if add to favorite alert is opened
     
     var screenwidth : CGFloat!
     var screenheight : CGFloat!
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return items.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let statCell = statTableView.dequeueReusableCellWithIdentifier("oneStatCell", forIndexPath: indexPath) as! StatTableViewCell
-        
-        statCell.keyLabel.text = "Hola"
-        statCell.keyLabel.font = RobotoFont.lightWithSize(14)
-        
-        statCell.valueLabel.text = "Holaaa"
-        statCell.valueLabel.font = RobotoFont.lightWithSize(14)
         
         return statCell
     }
@@ -51,27 +98,29 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
         screenwidth = self.view.frame.size.width
         screenheight = self.view.frame.size.height
         
-        usernameLabel.font = RobotoFont.thinWithSize(21)
-        rankNameLabel.font = RobotoFont.thinWithSize(14)
-        tokensLabel.font = RobotoFont.thinWithSize(14)
-        locationAndStatus.font = RobotoFont.thinWithSize(12)
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: RobotoFont.regularWithSize(16)], forState: UIControlState.Normal)
-    
-        let favoriteImg: UIImage? = UIImage(named: "ic_add_white_18dp")
-        let addToFavorites = FabButton(frame: CGRectMake(screenwidth-84, screenheight-84, 64, 64))
-        addToFavorites.backgroundColor = MaterialColor.brown.base
-        addToFavorites.setImage(favoriteImg, forState: .Normal)
-        addToFavorites.setImage(favoriteImg, forState: .Highlighted)
-        view.addSubview(addToFavorites)
-        addToFavorites.addTarget(self, action: "favorite:", forControlEvents: .TouchUpInside)
-        
         statTableView.dataSource = self
-        userDefaults.synchronize()
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: "pullRefresh:", forControlEvents: .ValueChanged)
+        statTableView.addSubview(refresh)
+        
+        /*
+        if let buttonBeep = self.setupAudioPlayerWithFile("ButtonTap", type:"wav") {
+            self.buttonBeep = buttonBeep
+        }
+        if let secondBeep = self.setupAudioPlayerWithFile("SecondBeep", type:"wav") {
+            self.secondBeep = secondBeep
+        }
+        if let backgroundMusic = self.setupAudioPlayerWithFile("HallOfTheMountainKing", type:"mp3") {
+            self.backgroundMusic = backgroundMusic
+        }
+        */
     }
         // Do any additional setup after loading the view.
     
-    func favorite(sender: FabButton!) {
-        alertFavoriteUser()
+    func pullRefresh(sender: UIRefreshControl) {
+        updateUI()
+        //buttonBeep?.play()
+        sender.endRefreshing()
     }
     
     func addLogoToNavBar() {
@@ -82,62 +131,28 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
         self.navigationItem.titleView = imageView
     }
     
-    func addFavoriteButton (sender: FlatButton!) { //Action "connected" to the "Add" button in the add to favorite alert
-    }
-    
-    @IBAction func reload(sender: AnyObject) {
-        updateUI()
-    }
-    
-    func cancelFavoriteButton (sender: FlatButton!) {
-        print("Cancel")
-    }
-    
-    func alertFavoriteUser() {
-        if addFavoriteActive == false {
-        let cardView: CardView = CardView()
+    func addFavoriteButton () {
+        if favoritePlayers.count != 0 {
+            var inArray = false
+        for i in 0 ... favoritePlayers.count - 1 {
+            if favoritePlayers[i] != username {
+                inArray = false
+            } else {
+                inArray = true
+                break // Stops when found
+            }
             
-        let titleLabel: UILabel = UILabel()
-        titleLabel.text = "Adding \(username)"
-        titleLabel.textColor = MaterialColor.brown.darken1
-        titleLabel.font = RobotoFont.mediumWithSize(20)
-        cardView.titleLabel = titleLabel
-        
-        let detailLabel: UILabel = UILabel()
-        detailLabel.text = "You are about to add xpaperx to your favorites. This player will be displayed on the main screen."
-        detailLabel.numberOfLines = 0
-        cardView.detailLabel = detailLabel
-        
-        let add: FlatButton = FlatButton()
-        add.pulseColor = MaterialColor.brown.lighten1
-        add.pulseFill = true
-        add.pulseScale = false
-        add.setTitle("ADD", forState: .Normal)
-        add.setTitleColor(MaterialColor.brown.darken1, forState: .Normal)
-        add.addTarget(self, action: "addFavoriteButton:", forControlEvents: .TouchUpInside)
-        
-        let cancel: FlatButton = FlatButton()
-        cancel.pulseColor = MaterialColor.brown.lighten1
-        cancel.pulseFill = true
-        cancel.pulseScale = false
-        cancel.setTitle("CANCEL", forState: .Normal)
-        cancel.setTitleColor(MaterialColor.brown.darken1, forState: .Normal)
-        cancel.addTarget(self, action: "cancelFavoriteButton:", forControlEvents: .TouchUpInside)
-        
-        cardView.leftButtons = [add, cancel]
-        
-        // To support orientation changes, use MaterialLayout.
-        view.addSubview(cardView)
-        cardView.translatesAutoresizingMaskIntoConstraints = false
-        MaterialLayout.alignFromTop(view, child: cardView, top: 100)
-        MaterialLayout.alignToParentHorizontally(view, child: cardView, left: 20, right: 20)
-            addFavoriteActive = true
+            }
+            if inArray == true {
+                print("Already in array!")
+            } else {
+                favoritePlayers.append(username)
+            }
         } else {
-            print("Opened already!")
+            favoritePlayers.append(username)
         }
-        
-        }
-    
+    }
+
     func updateUI() {
         
         let statusDownload = DownladStatus()
@@ -174,7 +189,10 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
                     
                     if currentPlayer.username == "lukeatit" || currentPlayer.username == "Winner" {
                         self.rankNameLabel?.text = "App Creator"
-                        self.rankNameLabel.backgroundColor = MaterialColor.teal.base
+                        self.rankNameLabel.backgroundColor = UIColor.blueColor()
+                    } else if currentPlayer.username == "xpaperx" {
+                        self.rankNameLabel?.text = "lukeatit's girlfriend"
+                        self.rankNameLabel.backgroundColor = UIColor.purpleColor()
                     } else {
                     
                     switch rankName {
@@ -214,6 +232,9 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
                 }
                 
                 print(currentPlayer.username)
+                
+                // SURVIVAL GAMES
+                
                 print(currentPlayer.arrowsFired)
                 print(currentPlayer.arrowsHit)
                 print(currentPlayer.blocks)
@@ -276,82 +297,8 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
         if let data = NSData(contentsOfURL: url!) {
         userProfileImage.image = UIImage(data: data)
         } else {
-            userProfileImage.image = UIImage(named: "default.png")
+            userProfileImage.image = UIImage(named: "default_profileImage.png")
         }
     }
     
-    // MARK: - Table view data source
-    
-    /*
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("oneStatCell", forIndexPath: indexPath) as! UITableViewCell
-        
-        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
-        
-        return cell
-    }
-    /*
-    // Configure the cell...
-    
-    return cell
-    }
-    */
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    */
 }

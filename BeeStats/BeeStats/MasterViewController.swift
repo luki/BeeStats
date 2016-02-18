@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Material
 
 class MasterViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
@@ -21,17 +20,28 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        let myCell = FavoritePlayers.dequeueReusableCellWithIdentifier("aFavoritePlayer", forIndexPath: indexPath) as! FavoritePlayerTableViewCell
-        
-        myCell.usernameTextLabel.text = favoritePlayers[indexPath.row]
-        myCell.usernameTextLabel.font = RobotoFont.lightWithSize(16)
-        
-        myCell.rankNameLabel.text = "Moderator"
-        myCell.rankNameLabel.font = RobotoFont.mediumWithSize(11)
-        myCell.rankNameLabel.textColor = MaterialColor.red.base
-        
+            
+            let hiveDowload = DownloadUserProfile()
+            hiveDowload.downloadJSON(favoritePlayers[indexPath.row]) {
+                (let player) in
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    if let currentPlayer = player {
+                        myCell.usernameTextLabel.text = currentPlayer.username
+                        
+                        myCell.rankNameLabel.text = currentPlayer.rankName
+                        
+                    }
+                }
+            }
         
         return myCell
         
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        favoritePlayers.removeAtIndex(indexPath.row)
+        FavoritePlayers.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
     override func viewDidLoad() {
@@ -40,7 +50,15 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
         searchBar.delegate = self
         FavoritePlayers.dataSource = self
         FavoritePlayers.reloadData()
-        userDefaults.synchronize()
+        
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: "pullRefresh:", forControlEvents: .ValueChanged)
+        FavoritePlayers.addSubview(refresh)
+    }
+    
+    func pullRefresh(sender: UIRefreshControl) {
+        FavoritePlayers.reloadData()
+        sender.endRefreshing()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {

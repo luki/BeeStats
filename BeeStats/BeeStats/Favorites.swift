@@ -8,5 +8,4 @@
 
 import Foundation
 
-let userDefaults = NSUserDefaults.standardUserDefaults()
 var favoritePlayers: [String] = []
