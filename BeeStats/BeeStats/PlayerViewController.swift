@@ -16,7 +16,7 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
     }
     
     func favoriteAlert() {
-        let alert = UIAlertController(title: "Adding \(usernameLabel.text) to favorites", message: "You are about to add this player to your favorites.", preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title: "Adding \(usernameLabel.text!) to favorites", message: "You are about to add this player to your favorites.", preferredStyle: .ActionSheet)
         
         let add = UIAlertAction(title: "Add", style: .Default) {
             (action) in
@@ -72,15 +72,13 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tokensLabel: UILabel!
     @IBOutlet weak var locationAndStatus: UILabel!
     
-    var items = [[Player]]()
-    
     var addFavoriteActive = false // Using for checking if add to favorite alert is opened
     
     var screenwidth : CGFloat!
     var screenheight : CGFloat!
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -92,6 +90,8 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userProfileImage.layer.cornerRadius = 2
+        userProfileImage.layer.masksToBounds = true
         addLogoToNavBar()
         updateUI()
         // Get Screensize of Device
@@ -144,7 +144,16 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
             
             }
             if inArray == true {
-                print("Already in array!")
+                let alert = UIAlertController(title: "Error while adding player", message: "\(usernameLabel.text!) is already in yours favorites and can not be added a second time.", preferredStyle: .Alert)
+                
+                let okay = UIAlertAction(title: "Okay", style: .Cancel) {
+                    (action) in
+                    
+                    print("Okay")
+                }
+                
+                alert.addAction(okay)
+                presentViewController(alert, animated: true, completion: nil)
             } else {
                 favoritePlayers.append(username)
             }

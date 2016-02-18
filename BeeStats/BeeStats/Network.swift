@@ -30,11 +30,10 @@ class Network {
                         print("Succes")
                         let jsonDictionary = (try? NSJSONSerialization.JSONObjectWithData(data!, options: [])) as? [String: AnyObject]
                         theCompletion(jsonDictionary)
-                    default:
-                    createAlert("No response!", message: "Hive responds ith \(httpResponse.statusCode)")
+                    default: print("Error")
                 }
             } else {
-                createAlert("A problem occurred.", message: "No ")
+                print("Error")
                 
             }
         }

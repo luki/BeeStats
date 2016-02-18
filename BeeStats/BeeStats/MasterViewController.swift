@@ -10,6 +10,9 @@ import UIKit
 
 class MasterViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
+    var phoneWidth: CGFloat = 0.0
+    var phoneHeight: CGFloat = 0.0
+    
     @IBOutlet weak var FavoritePlayers: UITableView!
     @IBOutlet weak var navBarImage: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -29,6 +32,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
                     if let currentPlayer = player {
                         myCell.usernameTextLabel.text = currentPlayer.username
                         
+                        myCell.profileImageView.image = self.profilePhoto(currentPlayer.username!)
                         myCell.rankNameLabel.text = currentPlayer.rankName
                         
                     }
@@ -39,6 +43,16 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
         
     }
     
+    func profilePhoto(username: String) -> UIImage {
+        let url = NSURL(string: "https://avatar.hivemc.com/avatar/\(username)/500")
+        if let data = NSData(contentsOfURL: url!) {
+            return UIImage(data: data)!
+        } else {
+            return UIImage(named: "default_profileImage.png")!
+        }
+
+    }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         favoritePlayers.removeAtIndex(indexPath.row)
         FavoritePlayers.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
@@ -46,10 +60,18 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        phoneHeight = view.frame.size.height
+        phoneWidth = view.frame.size.width
+        
+        print(phoneWidth)
+        
         addLogoToNavBar()
         searchBar.delegate = self
         FavoritePlayers.dataSource = self
         FavoritePlayers.reloadData()
+        
+        updateNBBG()
         
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: "pullRefresh:", forControlEvents: .ValueChanged)
@@ -63,6 +85,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         performSegueWithIdentifier("showUser", sender: searchBar)
+        resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,6 +106,18 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
         imageView.contentMode = .ScaleAspectFit
         imageView.image = image
         self.navigationItem.titleView = imageView
+    }
+    
+    func updateNBBG() {
+        let currentWidth: CGFloat = view.frame.size.width
+        
+        if currentWidth == 320.0 {
+        
+            if let image320 = UIImage(named: "640") {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "640"), forBarMetrics: .Default)
+                print("Image")
+            }
+    }
     }
     
     }
