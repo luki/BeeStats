@@ -8,10 +8,12 @@
 
 import UIKit
 
-class MasterViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class MasterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     var phoneWidth: CGFloat = 0.0
     var phoneHeight: CGFloat = 0.0
+    
+    var username = ""
     
     @IBOutlet weak var FavoritePlayers: UITableView!
     @IBOutlet weak var navBarImage: UIView!
@@ -43,6 +45,13 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
         
     }
     
+    func tableView(tableView: UITableView, //UITableViewDelegate needed
+        didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            username = favoritePlayers[indexPath.row]
+            performSegueWithIdentifier("showUser", sender: self)
+            
+    }
+    
     func profilePhoto(username: String) -> UIImage {
         let url = NSURL(string: "https://avatar.hivemc.com/avatar/\(username)/500")
         if let data = NSData(contentsOfURL: url!) {
@@ -53,22 +62,16 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
 
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        favoritePlayers.removeAtIndex(indexPath.row)
-        FavoritePlayers.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         phoneHeight = view.frame.size.height
         phoneWidth = view.frame.size.width
         
-        print(phoneWidth)
-        
         addLogoToNavBar()
         searchBar.delegate = self
         FavoritePlayers.dataSource = self
+        FavoritePlayers.delegate = self
         FavoritePlayers.reloadData()
         
         updateNBBG()
@@ -84,6 +87,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        username = searchBar.text!
         performSegueWithIdentifier("showUser", sender: searchBar)
         resignFirstResponder()
     }
@@ -96,7 +100,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showUser" {
             let controller = segue.destinationViewController as! PlayerViewController
-            controller.username = searchBar.text!
+            controller.username = username
         }
     }
     
@@ -114,10 +118,18 @@ class MasterViewController: UIViewController, UITableViewDataSource, UISearchBar
         if currentWidth == 320.0 {
         
             if let image320 = UIImage(named: "640") {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "640"), forBarMetrics: .Default)
+        navigationController?.navigationBar.setBackgroundImage(image320, forBarMetrics: .Default)
                 print("Image")
             }
-    }
+        } else if currentWidth == 375.0 {
+            if let image350 = UIImage(named: "750") {
+                navigationController?.navigationBar.setBackgroundImage(image350, forBarMetrics: .Default)
+            }
+        } else if currentWidth == 414.0 {
+            if let image414 = UIImage(named: "1080") {
+                navigationController?.navigationBar.setBackgroundImage(image414, forBarMetrics: .Default)
+            }
+        }
     }
     
     }

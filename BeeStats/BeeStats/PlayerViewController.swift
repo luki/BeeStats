@@ -8,8 +8,11 @@
 
 import UIKit
 import AVFoundation
+import QuartzCore // For rounded corners for the label background
 
 class PlayerViewController: UIViewController, UITableViewDataSource {
+    
+    @IBOutlet weak var onlineSign: UIView!
     
     @IBAction func addFavorite(sender: AnyObject) {
         favoriteAlert()
@@ -90,6 +93,8 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        onlineSign.layer.cornerRadius = onlineSign.bounds.size.width/2
+        onlineSign.layer.masksToBounds = true
         userProfileImage.layer.cornerRadius = 2
         userProfileImage.layer.masksToBounds = true
         addLogoToNavBar()
@@ -144,7 +149,8 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
             
             }
             if inArray == true {
-                let alert = UIAlertController(title: "Error while adding player", message: "\(usernameLabel.text!) is already in yours favorites and can not be added a second time.", preferredStyle: .Alert)
+
+                let alert = UIAlertController(title: "\(usernameLabel.text!) is already in your favorites and can not be added a second time", message: nil, preferredStyle: .Alert)
                 
                 let okay = UIAlertAction(title: "Okay", style: .Cancel) {
                     (action) in
@@ -172,12 +178,21 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
                 if let currentStatus = status {
                     if let playerStatus = currentStatus.status {
                         if let playerLocation = currentStatus.game {
-                            if playerStatus == "Currently hibernating in " {
+                            /*if playerStatus == "Currently hibernating in " {
                                 self.locationAndStatus?.text = "\(playerStatus)\(playerLocation)"
                             } else {
                                 self.locationAndStatus?.text = "\(playerStatus) \(playerLocation)"
                                 print(playerStatus)
                                 print(playerLocation)
+                            }*/
+                            print(playerStatus)
+                            if playerStatus == "Currently hibernating in " {
+                                self.locationAndStatus.text = "Offline"
+                                self.onlineSign.backgroundColor = UIColor(red: 223.0/255.0, green: 75.0/255.0, blue: 63.0/255.0, alpha: 1.0)
+                            } else if playerStatus == "Promenading around one of many"{
+                                self.locationAndStatus.text = "Hub"
+                            } else {
+                                self.locationAndStatus.text = "Online"
                             }
                         }
                     }
@@ -195,13 +210,13 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
                     self.usernameLabel?.text = "\(username)"
                 }
                 if let rankName = currentPlayer.rankName {
-                    
+                    self.rankNameLabel.layer.cornerRadius = 3
                     if currentPlayer.username == "lukeatit" || currentPlayer.username == "Winner" {
                         self.rankNameLabel?.text = "App Creator"
-                        self.rankNameLabel.backgroundColor = UIColor.blueColor()
+                        self.rankNameLabel.layer.backgroundColor = UIColor.blueColor().CGColor // Converts to CGColor
                     } else if currentPlayer.username == "xpaperx" {
                         self.rankNameLabel?.text = "lukeatit's girlfriend"
-                        self.rankNameLabel.backgroundColor = UIColor.purpleColor()
+                        self.rankNameLabel.layer.backgroundColor = UIColor.purpleColor().CGColor
                     } else {
                     
                     switch rankName {
@@ -211,26 +226,26 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
 
                         
                     case "Hive Moderator": self.rankNameLabel?.text = "Moderator"
-                        self.rankNameLabel.backgroundColor = UIColor(red: 223.0/255.0, green: 75.0/255.0, blue: 63.0/255.0, alpha: 1.0)
+                        self.rankNameLabel.layer.backgroundColor = UIColor(red: 223.0/255.0, green: 75.0/255.0, blue: 63.0/255.0, alpha: 1.0).CGColor
                     
                     case "Hive Admin": self.rankNameLabel?.text = "Developer"
-                    self.rankNameLabel.backgroundColor = UIColor(red: 109.0/255.0, green: 109.0/255.0, blue: 109.0/255.0, alpha: 1.0)
+                    self.rankNameLabel.layer.backgroundColor = UIColor(red: 109.0/255.0, green: 109.0/255.0, blue: 109.0/255.0, alpha: 1.0).CGColor
 
                         
                     case "Diamond Hive Member": self.rankNameLabel?.text = "Diamond Member"
-                        self.rankNameLabel.backgroundColor = UIColor(red: 30.0/255.0, green: 173.0/255.0, blue: 177.0/255.0, alpha: 1.0)
+                        self.rankNameLabel.layer.backgroundColor = UIColor(red: 30.0/255.0, green: 173.0/255.0, blue: 177.0/255.0, alpha: 1.0).CGColor
                         
                     case "Lifetime Emerald Hive Member": self.rankNameLabel?.text = "Emerald Member"
-                        self.rankNameLabel.backgroundColor = UIColor(red: 45.0/255.0, green: 199.0/255.0, blue: 63.0/255.0, alpha: 1.0)
+                        self.rankNameLabel.layer.backgroundColor = UIColor(red: 45.0/255.0, green: 199.0/255.0, blue: 63.0/255.0, alpha: 1.0).CGColor
                         
                     case "Hive Founder and Owner": self.rankNameLabel?.text = "Founder and Owner"
-                        self.rankNameLabel.backgroundColor = UIColor(red: 237.0/255.0, green: 175.0/255.0, blue: 22.0/255.0, alpha: 1.0)
+                        self.rankNameLabel.layer.backgroundColor = UIColor(red: 237.0/255.0, green: 175.0/255.0, blue: 22.0/255.0, alpha: 1.0).CGColor
                         
                     case "VIP Player": self.rankNameLabel?.text = "VIP Player"
-                        self.rankNameLabel.backgroundColor = UIColor(red: 170.0/255.0, green: 47.0/255.0, blue: 225.0/255.0, alpha: 1.0)
+                        self.rankNameLabel.layer.backgroundColor = UIColor(red: 170.0/255.0, green: 47.0/255.0, blue: 225.0/255.0, alpha: 1.0).CGColor
                         
                     default: self.rankNameLabel?.text = "Regular Member"
-                        self.rankNameLabel.backgroundColor = UIColor(red: 34.0/255.0, green: 97.0/255.0, blue: 153.0/255.0, alpha: 1.0)
+                        self.rankNameLabel.layer.backgroundColor = UIColor(red: 34.0/255.0, green: 97.0/255.0, blue: 153.0/255.0, alpha: 1.0).CGColor
 
                     }
                     }

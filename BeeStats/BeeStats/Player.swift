@@ -93,12 +93,12 @@ class Player {
         rankName = dictionary["rankName"] as? String
         tokens = dictionary["tokens"] as? Int
         
-        let timv = dictionary["timv"]!
-        detective = timv["detective"] as? Int
-        innocent = timv["innocent"] as? Int
-        traitor = timv["traitor"] as? Int
-        mostPoints = timv["mostPoints"] as? Int
-        karma = timv["karma"] as? Int
+        let timv = dictionary["timv"] as? [String: AnyObject]
+        detective = timv!["detective"] as? Int
+        innocent = timv!["innocent"] as? Int
+        traitor = timv!["traitor"] as? Int
+        mostPoints = timv!["mostPoints"] as? Int
+        karma = timv!["karma"] as? Int
         
         let sg = dictionary["sg"]!
         victories = sg["victories"] as? Int

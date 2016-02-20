@@ -11,6 +11,9 @@
             <string>Ubuntu</string>
             <string>Ubuntu</string>
             <string>Ubuntu</string>
+            <string>Ubuntu</string>
+            <string>Ubuntu</string>
+            <string>Ubuntu</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -61,7 +64,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.97647058823529409" green="0.97254901960784312" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="profileImageView" destination="3sK-aB-LHf" id="XX3-vc-Xch"/>
                                             <outlet property="rankNameLabel" destination="et2-BI-kyg" id="eC8-cK-ZB0"/>
@@ -153,13 +155,13 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Victories" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG8-Uf-ylS">
                                                     <rect key="frame" x="8" y="8" width="166" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="633845" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSP-th-2Pe">
                                                     <rect key="frame" x="176" y="8" width="136" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
                                                     <color key="textColor" white="0.5990928951367781" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -179,23 +181,24 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Currently hibernating in the Land of Nods!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOc-H4-ucr">
-                                <rect key="frame" x="44" y="173" width="256" height="15"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Currently hibernating in the Land of Nods!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOc-H4-ucr">
+                                <rect key="frame" x="144" y="164" width="151" height="21"/>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AbK-zG-gGW">
+                                <rect key="frame" x="120" y="167" width="16" height="16"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="omo-rc-Qnf" firstAttribute="leading" secondItem="adM-aQ-Pk2" secondAttribute="trailing" constant="20" id="0h0-QZ-GlC"/>
-                            <constraint firstItem="omo-rc-Qnf" firstAttribute="top" secondItem="TBw-WU-YBO" secondAttribute="bottom" constant="3" id="3fX-oQ-jgF"/>
                             <constraint firstItem="7V5-9C-Is1" firstAttribute="leading" secondItem="1y7-qB-3RJ" secondAttribute="leading" id="AIn-Bw-iPs"/>
-                            <constraint firstItem="7V5-9C-Is1" firstAttribute="top" secondItem="TOc-H4-ucr" secondAttribute="bottom" constant="26" id="AK7-s3-XtI"/>
                             <constraint firstItem="fx4-KR-xcb" firstAttribute="leading" secondItem="adM-aQ-Pk2" secondAttribute="trailing" constant="20" id="Aq8-ns-gpa"/>
                             <constraint firstItem="fx4-KR-xcb" firstAttribute="top" secondItem="uOa-Xk-nJt" secondAttribute="bottom" constant="23" id="EC5-aa-xrB"/>
                             <constraint firstItem="BK3-hh-oLJ" firstAttribute="top" secondItem="uOa-Xk-nJt" secondAttribute="bottom" id="If9-bH-pp2"/>
-                            <constraint firstItem="TOc-H4-ucr" firstAttribute="centerX" secondItem="1y7-qB-3RJ" secondAttribute="centerX" id="KXf-SG-d39"/>
                             <constraint firstItem="omo-rc-Qnf" firstAttribute="top" secondItem="TBw-WU-YBO" secondAttribute="bottom" constant="3" id="Mev-xN-YZN"/>
                             <constraint firstItem="fx4-KR-xcb" firstAttribute="top" secondItem="uOa-Xk-nJt" secondAttribute="bottom" constant="23" id="Pu4-DY-QlR"/>
                             <constraint firstItem="TBw-WU-YBO" firstAttribute="leading" secondItem="adM-aQ-Pk2" secondAttribute="trailing" constant="20" id="XTf-Ah-kkT"/>
@@ -207,6 +210,7 @@
                             <constraint firstItem="7V5-9C-Is1" firstAttribute="centerX" secondItem="1y7-qB-3RJ" secondAttribute="centerX" id="kag-oS-3yu"/>
                             <constraint firstAttribute="trailing" secondItem="7V5-9C-Is1" secondAttribute="trailing" id="lMV-JK-BIe"/>
                             <constraint firstItem="sHs-Ey-d3B" firstAttribute="top" secondItem="7V5-9C-Is1" secondAttribute="bottom" id="tOQ-JI-1DX"/>
+                            <constraint firstItem="AbK-zG-gGW" firstAttribute="top" secondItem="omo-rc-Qnf" secondAttribute="bottom" constant="6" id="w9y-wn-tAG"/>
                             <constraint firstItem="adM-aQ-Pk2" firstAttribute="leading" secondItem="1y7-qB-3RJ" secondAttribute="leading" constant="20" id="yKk-rB-chQ"/>
                             <constraint firstItem="7V5-9C-Is1" firstAttribute="top" secondItem="BK3-hh-oLJ" secondAttribute="bottom" id="zSE-uh-h4G"/>
                         </constraints>
@@ -221,6 +225,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="locationAndStatus" destination="TOc-H4-ucr" id="125-or-DMc"/>
+                        <outlet property="onlineSign" destination="AbK-zG-gGW" id="oSh-Xf-DBK"/>
                         <outlet property="rankNameLabel" destination="TBw-WU-YBO" id="E0t-LT-EFQ"/>
                         <outlet property="statTableView" destination="7V5-9C-Is1" id="Wda-tW-zqO"/>
                         <outlet property="tokensLabel" destination="omo-rc-Qnf" id="Fjt-Md-FPp"/>
