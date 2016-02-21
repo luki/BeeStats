@@ -52,6 +52,11 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        favoritePlayers.removeAtIndex(indexPath.row)
+        FavoritePlayers.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    }
+    
     func profilePhoto(username: String) -> UIImage {
         let url = NSURL(string: "https://avatar.hivemc.com/avatar/\(username)/500")
         if let data = NSData(contentsOfURL: url!) {

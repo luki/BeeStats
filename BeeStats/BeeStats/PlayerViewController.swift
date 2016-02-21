@@ -119,6 +119,7 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
             self.backgroundMusic = backgroundMusic
         }
         */
+        
     }
         // Do any additional setup after loading the view.
     
@@ -161,7 +162,17 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
                 alert.addAction(okay)
                 presentViewController(alert, animated: true, completion: nil)
             } else {
+                if username.lowercaseString == "xpaperx" && favoritePlayers[favoritePlayers.count-1].lowercaseString == "lukeatit" {
+                    favoritePlayers.append(username)
+                    coupleLove(favoritePlayers[favoritePlayers.count-2], name2: favoritePlayers[favoritePlayers.count-1])
+                    print("lukeatit & xpaperx")
+                } else if username.lowercaseString == "lukeatit" && favoritePlayers[favoritePlayers.count - 1].lowercaseString == "xpaperx" {
+                    favoritePlayers.append(username)
+                    print("xpaperx & lukeatit")
+                    coupleLove(favoritePlayers[favoritePlayers.count-2], name2: favoritePlayers[favoritePlayers.count-1])
+                } else {
                 favoritePlayers.append(username)
+                }
             }
         } else {
             favoritePlayers.append(username)
@@ -178,21 +189,12 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
                 if let currentStatus = status {
                     if let playerStatus = currentStatus.status {
                         if let playerLocation = currentStatus.game {
-                            /*if playerStatus == "Currently hibernating in " {
-                                self.locationAndStatus?.text = "\(playerStatus)\(playerLocation)"
-                            } else {
-                                self.locationAndStatus?.text = "\(playerStatus) \(playerLocation)"
-                                print(playerStatus)
-                                print(playerLocation)
-                            }*/
                             print(playerStatus)
                             if playerStatus == "Currently hibernating in " {
                                 self.locationAndStatus.text = "Offline"
                                 self.onlineSign.backgroundColor = UIColor(red: 223.0/255.0, green: 75.0/255.0, blue: 63.0/255.0, alpha: 1.0)
                             } else if playerStatus == "Promenading around one of many"{
                                 self.locationAndStatus.text = "Hub"
-                            } else {
-                                self.locationAndStatus.text = "Online"
                             }
                         }
                     }
@@ -325,4 +327,36 @@ class PlayerViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    /*
+    func existendUser() {
+        if usernameLabel.text! == "Non Existend" {
+            let alert = UIAlertController(title: "The player you are looking for doesn't exist.", message: nil, preferredStyle: .Alert)
+            
+            let back = UIAlertAction(title: "Back", style: .Default) {
+                (action) in
+                
+            }
+            
+            alert.addAction(back)
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+*/
+    func coupleLove(name1: String, name2: String) {
+        let alert = UIAlertController(title: "Woops! You just found a couple that is madly in love!", message: nil, preferredStyle: .Alert)
+        let action1 = UIAlertAction(title: "Sweet!", style: .Cancel) {
+            (action) in
+            
+            print("Yay")
+        }
+        alert.addAction(action1)
+        let action2 = UIAlertAction(title: "Omg, remove 'em!", style: .Destructive) {
+            (action) in
+            let index = favoritePlayers.count
+            favoritePlayers.removeAtIndex((index-1))
+            favoritePlayers.removeAtIndex((index-2))
+        }
+        alert.addAction(action2)
+        presentViewController(alert, animated: true, completion: nil)
+    }
 }

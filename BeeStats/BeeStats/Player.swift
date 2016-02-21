@@ -89,7 +89,11 @@ class Player {
     //ETC
     
     init(dictionary: [String: AnyObject]) {
-        username = dictionary["username"] as? String
+        if let usernameValue = dictionary["username"] as? String {
+            username = usernameValue
+        } else {
+            username = "Non Existend"
+        }
         rankName = dictionary["rankName"] as? String
         tokens = dictionary["tokens"] as? Int
         
