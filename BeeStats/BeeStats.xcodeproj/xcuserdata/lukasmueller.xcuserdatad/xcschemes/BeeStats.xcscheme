@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4F17E8951C53DBD90024CD71"
+               BlueprintIdentifier = "4F1C5FF71C8AF03F00902DC8"
                BuildableName = "BeeStats.app"
                BlueprintName = "BeeStats"
                ReferencedContainer = "container:BeeStats.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4F17E8951C53DBD90024CD71"
+            BlueprintIdentifier = "4F1C5FF71C8AF03F00902DC8"
             BuildableName = "BeeStats.app"
             BlueprintName = "BeeStats"
             ReferencedContainer = "container:BeeStats.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4F17E8951C53DBD90024CD71"
+            BlueprintIdentifier = "4F1C5FF71C8AF03F00902DC8"
             BuildableName = "BeeStats.app"
             BlueprintName = "BeeStats"
             ReferencedContainer = "container:BeeStats.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4F17E8951C53DBD90024CD71"
+            BlueprintIdentifier = "4F1C5FF71C8AF03F00902DC8"
             BuildableName = "BeeStats.app"
             BlueprintName = "BeeStats"
             ReferencedContainer = "container:BeeStats.xcodeproj">

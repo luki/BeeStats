@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct DownloadUserProfile {
     
     var startingURL = NSURL(string: "https://old.hivemc.com/json/userprofile/")
@@ -32,5 +33,5 @@ struct DownloadUserProfile {
             print("JSON dictionary returned nil for currently key")
             return nil
         }
-}
+    }
 }

@@ -18,19 +18,19 @@ class Network {
     init(url: NSURL) {
         URL = url
     }
-
+    
     func requestDownload(theCompletion: completion) {
         let request = NSURLRequest(URL: URL)
         let task = session.dataTaskWithRequest(request) {
             (data, response, error) in
-        
+            
             if let httpResponse = response as? NSHTTPURLResponse {
                 switch httpResponse.statusCode {
-                    case 200:
-                        print("Succes")
-                        let jsonDictionary = (try? NSJSONSerialization.JSONObjectWithData(data!, options: [])) as? [String: AnyObject]
-                        theCompletion(jsonDictionary)
-                    default: print("Error")
+                case 200:
+                    print("Succes")
+                    let jsonDictionary = (try? NSJSONSerialization.JSONObjectWithData(data!, options: [])) as? [String: AnyObject]
+                    theCompletion(jsonDictionary)
+                default: print("Error")
                 }
             } else {
                 print("Error")

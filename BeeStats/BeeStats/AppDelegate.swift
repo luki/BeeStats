@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  BeeStats
 //
-//  Created by Lukas A. Mueller on 1/23/16.
+//  Created by Lukas A. Mueller on 05/03/16.
 //  Copyright © 2016 Lukas A. Mueller. All rights reserved.
 //
 
@@ -12,7 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true
