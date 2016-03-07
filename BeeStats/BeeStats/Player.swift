@@ -34,7 +34,7 @@ class Player {
     let captures: Int?
     let hbKills: Int?
     let hbDeaths: Int?
-    let hbKD: Int?
+    let hbKD: Double?
     let hbPoints: Int?
     
     // HIDE 'N SEEK
@@ -131,7 +131,7 @@ class Player {
             captures = hb["captures"] as? Int
             hbKills = hb["kills"] as? Int
             hbDeaths = hb["deaths"] as? Int
-            hbKD = hb["kd"] as? Int
+            hbKD = hb["kd"] as? Double
             hbPoints = hb["points"] as? Int
         } else {
             captures = 0
