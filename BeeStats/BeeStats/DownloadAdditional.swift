@@ -36,7 +36,7 @@ struct DownloadTheLab {
 }
 
 struct DownloadOITC{
-    var startingURL = NSURL(string: "http://old.hivemc.com/json/oitc/")
+    var startingURL = NSURL(string: "https://old.hivemc.com/json/oitc/")
     
     func downloadJSON(UUID: String, completion: (OITC? -> Void)) {
         if let finalURL = NSURL(string: UUID, relativeToURL: startingURL) {
