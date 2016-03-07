@@ -12,8 +12,7 @@
 		4F1C60011C8AF03F00902DC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1C5FFF1C8AF03F00902DC8 /* Main.storyboard */; };
 		4F1C60031C8AF03F00902DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1C60021C8AF03F00902DC8 /* Assets.xcassets */; };
 		4F1C60061C8AF03F00902DC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1C60041C8AF03F00902DC8 /* LaunchScreen.storyboard */; };
-		4F8702961C8DF64C00DDA59F /* TheLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8702951C8DF64C00DDA59F /* TheLab.swift */; };
-		4F8702981C8DF86200DDA59F /* DownloadTheLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8702971C8DF86200DDA59F /* DownloadTheLab.swift */; };
+		4F8702961C8DF64C00DDA59F /* Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8702951C8DF64C00DDA59F /* Additional.swift */; };
 		4FA0CEAB1C8C254B00D1AD59 /* oneStatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0CEAA1C8C254B00D1AD59 /* oneStatTableViewCell.swift */; };
 		4FA0CEB81C8C4D3500D1AD59 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FA0CEAF1C8C4D3500D1AD59 /* Ubuntu-Italic.ttf */; };
 		4FA0CEB91C8C4D3500D1AD59 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FA0CEB01C8C4D3500D1AD59 /* Ubuntu-Light.ttf */; };
@@ -22,10 +21,9 @@
 		4FA0CEBE1C8C4D3500D1AD59 /* UFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FA0CEB51C8C4D3500D1AD59 /* UFL.txt */; };
 		4FE633E11C8AFF9D004A27E1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE633E01C8AFF9D004A27E1 /* MasterViewController.swift */; };
 		4FE633E41C8B022F004A27E1 /* DownloadUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE633E31C8B022F004A27E1 /* DownloadUserProfile.swift */; };
-		4FE633E61C8B0245004A27E1 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE633E51C8B0244004A27E1 /* DownloadStatus.swift */; };
+		4FE633E61C8B0245004A27E1 /* DownloadAdditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE633E51C8B0244004A27E1 /* DownloadAdditional.swift */; };
 		4FE633E81C8B0259004A27E1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE633E71C8B0259004A27E1 /* Network.swift */; };
 		4FE633EC1C8B02A1004A27E1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE633EB1C8B02A1004A27E1 /* Player.swift */; };
-		4FE633EE1C8B02AB004A27E1 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE633ED1C8B02AB004A27E1 /* PlayerStatus.swift */; };
 		4FE633F01C8B02C4004A27E1 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE633EF1C8B02C4004A27E1 /* Favorites.swift */; };
 		4FE633F31C8B032D004A27E1 /* FavoritePlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE633F21C8B032D004A27E1 /* FavoritePlayerTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -38,8 +36,7 @@
 		4F1C60021C8AF03F00902DC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F1C60051C8AF03F00902DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F1C60071C8AF03F00902DC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F8702951C8DF64C00DDA59F /* TheLab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheLab.swift; sourceTree = "<group>"; };
-		4F8702971C8DF86200DDA59F /* DownloadTheLab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTheLab.swift; sourceTree = "<group>"; };
+		4F8702951C8DF64C00DDA59F /* Additional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additional.swift; sourceTree = "<group>"; };
 		4FA0CEAA1C8C254B00D1AD59 /* oneStatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneStatTableViewCell.swift; sourceTree = "<group>"; };
 		4FA0CEAF1C8C4D3500D1AD59 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
 		4FA0CEB01C8C4D3500D1AD59 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
@@ -48,10 +45,9 @@
 		4FA0CEB51C8C4D3500D1AD59 /* UFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UFL.txt; sourceTree = "<group>"; };
 		4FE633E01C8AFF9D004A27E1 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		4FE633E31C8B022F004A27E1 /* DownloadUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadUserProfile.swift; sourceTree = "<group>"; };
-		4FE633E51C8B0244004A27E1 /* DownloadStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
+		4FE633E51C8B0244004A27E1 /* DownloadAdditional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadAdditional.swift; sourceTree = "<group>"; };
 		4FE633E71C8B0259004A27E1 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		4FE633EB1C8B02A1004A27E1 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		4FE633ED1C8B02AB004A27E1 /* PlayerStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
 		4FE633EF1C8B02C4004A27E1 /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		4FE633F21C8B032D004A27E1 /* FavoritePlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritePlayerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,8 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				4FE633E31C8B022F004A27E1 /* DownloadUserProfile.swift */,
-				4FE633E51C8B0244004A27E1 /* DownloadStatus.swift */,
-				4F8702971C8DF86200DDA59F /* DownloadTheLab.swift */,
+				4FE633E51C8B0244004A27E1 /* DownloadAdditional.swift */,
 				4FE633E71C8B0259004A27E1 /* Network.swift */,
 			);
 			name = NetworkAndParsing;
@@ -137,8 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				4FE633EB1C8B02A1004A27E1 /* Player.swift */,
-				4FE633ED1C8B02AB004A27E1 /* PlayerStatus.swift */,
-				4F8702951C8DF64C00DDA59F /* TheLab.swift */,
+				4F8702951C8DF64C00DDA59F /* Additional.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -232,15 +226,13 @@
 				4FE633F01C8B02C4004A27E1 /* Favorites.swift in Sources */,
 				4FE633E41C8B022F004A27E1 /* DownloadUserProfile.swift in Sources */,
 				4FA0CEAB1C8C254B00D1AD59 /* oneStatTableViewCell.swift in Sources */,
-				4FE633E61C8B0245004A27E1 /* DownloadStatus.swift in Sources */,
-				4F8702961C8DF64C00DDA59F /* TheLab.swift in Sources */,
+				4FE633E61C8B0245004A27E1 /* DownloadAdditional.swift in Sources */,
+				4F8702961C8DF64C00DDA59F /* Additional.swift in Sources */,
 				4FE633E81C8B0259004A27E1 /* Network.swift in Sources */,
 				4F1C5FFE1C8AF03F00902DC8 /* ProfileViewController.swift in Sources */,
 				4FE633EC1C8B02A1004A27E1 /* Player.swift in Sources */,
 				4FE633F31C8B032D004A27E1 /* FavoritePlayerTableViewCell.swift in Sources */,
-				4F8702981C8DF86200DDA59F /* DownloadTheLab.swift in Sources */,
 				4F1C5FFC1C8AF03F00902DC8 /* AppDelegate.swift in Sources */,
-				4FE633EE1C8B02AB004A27E1 /* PlayerStatus.swift in Sources */,
 				4FE633E11C8AFF9D004A27E1 /* MasterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

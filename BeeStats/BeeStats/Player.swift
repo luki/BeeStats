@@ -240,3 +240,15 @@ class Player {
         }
     }
 }
+
+
+struct Status {
+    
+    let status: String?
+    let game: String?
+    
+    init(dictionary: [String:AnyObject]) {
+        status = dictionary["status"] as? String
+        game = dictionary["game"] as? String
+    }
+}
