@@ -13,6 +13,7 @@ class Player {
     // GENERAL
     let username: String?
     let rankName: String?
+    let UUID: String?
     let tokens: Int?
     
     // SURVIVAL GAMES
@@ -96,6 +97,7 @@ class Player {
         }
         rankName = dictionary["rankName"] as? String
         tokens = dictionary["tokens"] as? Int
+        UUID = dictionary["UUID"] as? String
         
         if let timv = dictionary["timv"] as? [String: AnyObject] {
             detective = timv["detective"] as? Int
