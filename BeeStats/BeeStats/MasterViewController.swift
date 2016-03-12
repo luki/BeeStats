@@ -90,9 +90,70 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showUser" {
-            let controller = segue.destinationViewController as! ProfileViewController
-            controller.username = username
+        
+        var arrayOfString = Array(username.characters)
+        var containsUnallowedCharacter = false
+        
+        for i in 0...arrayOfString.count - 1 {
+            var currentCharacter: String = String(arrayOfString[i]).lowercaseString
+            if currentCharacter != "a"
+            && currentCharacter != "b"
+            && currentCharacter != "c"
+            && currentCharacter != "d"
+            && currentCharacter != "e"
+            && currentCharacter != "f"
+            && currentCharacter != "g"
+            && currentCharacter != "h"
+            && currentCharacter != "i"
+            && currentCharacter != "j"
+            && currentCharacter != "k"
+            && currentCharacter != "l"
+            && currentCharacter != "m"
+            && currentCharacter != "n"
+            && currentCharacter != "o"
+            && currentCharacter != "p"
+            && currentCharacter != "q"
+            && currentCharacter != "r"
+            && currentCharacter != "s"
+            && currentCharacter != "t"
+            && currentCharacter != "u"
+            && currentCharacter != "v"
+            && currentCharacter != "w"
+            && currentCharacter != "x"
+            && currentCharacter != "y"
+            && currentCharacter != "z"
+            && currentCharacter != "0"
+            && currentCharacter != "1"
+            && currentCharacter != "2"
+            && currentCharacter != "3"
+            && currentCharacter != "4"
+            && currentCharacter != "5"
+            && currentCharacter != "6"
+            && currentCharacter != "7"
+            && currentCharacter != "8"
+            && currentCharacter != "9"
+            && currentCharacter != "_" {
+                containsUnallowedCharacter = true
+                break
+            }
+        }
+        
+        if containsUnallowedCharacter == true {
+            let characterAlert = UIAlertController(title: "Your username contains at least one invalid character. You are allowed to type in A-Z, 0-9 and _", message: nil, preferredStyle: .Alert)
+            
+            let characterAction = UIAlertAction(title: "Okay", style: .Default){
+                (action) in
+                
+                self.searchBar.text = ""
+            }
+            
+            characterAlert.addAction(characterAction)
+            presentViewController(characterAlert, animated: true, completion: nil)
+        } else {
+            if segue.identifier == "showUser" {
+                let controller = segue.destinationViewController as! ProfileViewController
+                controller.username = username
+            }
         }
     }
     

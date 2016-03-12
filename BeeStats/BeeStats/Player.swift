@@ -97,7 +97,11 @@ class Player {
         }
         rankName = dictionary["rankName"] as? String
         tokens = dictionary["tokens"] as? Int
-        UUID = dictionary["UUID"] as? String
+        if let UUIDvalue = dictionary["UUID"] as? String {
+            UUID = UUIDvalue
+        } else {
+            UUID = "3365e0769ea34787bc76d808c85d5e79"
+        }
         
         if let timv = dictionary["timv"] as? [String: AnyObject] {
             detective = timv["detective"] as? Int
