@@ -2,8 +2,8 @@
 //  MasterViewController.swift
 //  BeeStats
 //
-//  Created by Lukas A. Mueller on 05/03/16.
-//  Copyright © 2016 Lukas A. Mueller. All rights reserved.
+//  Created by Lukas A. Müller Rolfs on 05/03/16.
+//  Copyright © 2016 Lukas A. Müller Rolfs. All rights reserved.
 //
 
 import UIKit
@@ -61,6 +61,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
                     myCell.rankNameLabel.layer.backgroundColor = UIColor(red: 223.0/255.0, green: 75.0/255.0, blue: 63.0/255.0, alpha: 1.0).CGColor
                     case "Hive Admin": myCell.rankNameLabel.text = "Developer"
                     myCell.rankNameLabel.layer.backgroundColor = UIColor(red: 109.0/255.0, green: 109.0/255.0, blue: 109.0/255.0, alpha: 1.0).CGColor
+                    case "Diamond Hive Member": myCell.rankNameLabel.text = "Diamond Member"
+                    myCell.rankNameLabel.layer.backgroundColor = UIColor(red: 30.0/255.0, green: 173.0/255.0, blue: 177.0/255.0, alpha: 1.0).CGColor
                     case "Diamond Hive Member": myCell.rankNameLabel.text = "Diamond Member"
                     myCell.rankNameLabel.layer.backgroundColor = UIColor(red: 30.0/255.0, green: 173.0/255.0, blue: 177.0/255.0, alpha: 1.0).CGColor
                     default: myCell.rankNameLabel.text = "Regular Member"

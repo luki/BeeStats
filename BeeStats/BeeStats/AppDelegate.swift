@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  BeeStats
 //
-//  Created by Lukas A. Mueller on 05/03/16.
-//  Copyright © 2016 Lukas A. Mueller. All rights reserved.
+//  Created by Lukas A. Müller Rolfs on 05/03/16.
+//  Copyright © 2016 Lukas A. Müller Rolfs. All rights reserved.
 //
 
 import UIKit
